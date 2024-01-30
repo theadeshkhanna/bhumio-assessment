@@ -9,7 +9,7 @@ app.use(express.json());
 const port = process.env.PORT || 1667
 const upload = multer({ dest: "uploads/" });
 
-app.post('/upload', upload.single('photo'), parseUploadedDocument);
+app.post('/upload', upload.single('file'), parseUploadedDocument);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

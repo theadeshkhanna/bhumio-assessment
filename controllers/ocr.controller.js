@@ -1,6 +1,10 @@
 const ocr = require("../services/ocr.service");
 
 const parseUploadedDocument = async (req, res) => {
+    if (!req.file) {
+     res.status(422).send("Please attach a file to file key");
+    }
+
     try {
         const imagePath = 'uploads/' + req.file.filename;
         const parsedResponse = await ocr(imagePath);
